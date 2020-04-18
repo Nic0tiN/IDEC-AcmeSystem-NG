@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet"
+          asp-href-include="~/lib/bootstrap/dist/css/bootstrap.css"
+          asp-href-exclude="**/*-reboot*,**/*-grid*" />
+
+    <title>@ViewData["Title"] - AcmeSystem</title>
+
+</head>
+<body >
+    <header class="navbar navbar-inverse bg-inverse" role="navigation">
+        <div>
+            <div>
+                <a href="/"><span><i></i></span> AcmeSystem</a>
+            </div>
+
+        </div>
+    </header>
+    <div class="row m-1 p-1">
+        <div id="categories" class="col-3">
+            @await Component.InvokeAsync("NavigationMenu")
+        </div>
+        <div div class="col-9">
+            @RenderBody()
+        </div>
+    </div>
+</body>
+</html>

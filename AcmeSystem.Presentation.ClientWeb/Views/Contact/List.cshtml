@@ -1,0 +1,24 @@
+﻿
+@model ContactListViewModel
+
+    @{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+    @foreach (var c in Model.Contacts)
+    {
+<div class="card card-outline-primary m-1 p-1">
+    <div class="bg-faded p-1">
+        <h4>@c.ToString()</h4>
+    </div>
+    <div class="card-text p-1">@c.Nom</div>
+    <div class="card-text p-1">@c.Prenom</div>
+    <div class="card-text p-1">@c.Adresse</div>
+</div>
+    }
+        <div page-model="@Model.PagingInfo" page-action="List" page-classes-enabled="true"
+             page-class="btn" page-class-normal="btn-secondary"
+             page-class-selected="btn-primary" class="btn-group pull-right m-1">
+        </div>
+

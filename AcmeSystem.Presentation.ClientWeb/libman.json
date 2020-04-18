@@ -1,0 +1,46 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "jquery@3.3.1",
+      "files": [
+        "jquery.min.js",
+        "jquery.js",
+        "jquery.min.map"
+      ],
+      "destination": "wwwroot/lib/jquery/"
+    },
+
+    {
+      "library": "twitter-bootstrap@4.0.0",
+      "destination": "wwwroot/lib/bootstrap/dist"
+    },
+
+    {
+      "library": "jquery-validate@1.17.0",
+      "destination": "wwwroot/lib/jquery-validation",
+      "files": [ "jquery.validate.min.js" ]
+    },
+
+    {
+      "library": "jquery-validation-unobtrusive@3.3.1",
+      "destination": "wwwroot/lib/jquery-validation-unobtrusive",
+      "files": [ "jquery.validate.unobtrusive.min.js" ]
+    },
+
+    {
+      "provider": "unpkg",
+      "library": "font-awesome-5-css@5.4.1",
+      "destination": "wwwroot/lib/fontawesome",
+      "files": [
+        "css/all.css",
+        "css/all.min.css",
+        "css/brands.css",
+        "css/brands.min.css",
+        "css/fa-solid.css",
+        "css/fa-solid.min.css"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+﻿html {
+    font-size: 14px;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.acmesystem {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.corps {
+    flex: 1;
+}
+
+header {
+    background: #eeeeee;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 0.1rem solid;
+    border-color: #e0dede
+}
+
+.logo a {
+    font-size: 26px;
+}
+
+.block-recherche {
+    align-self: center;
+}
+
+    .block-recherche form {
+        align-self: center;
+        background: white;
+        border-radius: 5px 5px 5px 5px;
+        width: 30rem;
+    }
+
+        .block-recherche form input {
+            border: 0;
+            border-radius: 5px 5px 5px 5px;
+            height: 3rem;
+        }
+
+        .block-recherche form button {
+            border: 0;
+            background: white;
+            border-radius: 5px 5px 5px 5px;
+        }
+
+.menu {
+    align-self: flex-end;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+    header nav ul li {
+        display: inline-block;
+        margin-left: 15px;
+        text-align: center;
+    }
+
+footer {
+    background: #eeeeee;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    border-top: 0.1rem solid;
+    border-color: #e0dede
+}
+
+    footer ul {
+        list-style: none;
+    }
+
+.login-conteneur {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-form {
+    width: 30rem;
+    padding: 2rem;
+    border: .1rem groove;
+    border-radius: 5px;
+}
+
+.label-password-login {
+    display: flex;
+    justify-content: space-between;
+    height: 25px;
+}
+
+.livre-detail {
+    display: flex;
+    flex-direction: column;
+}
+
+.detail-center-list {
+    list-style: none;
+    padding: 0;
+}
+
+dive {
+    border-style: solid;
+}
+
+.detail-center-image {
+}
+
+.detail-center-prix {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.detail-center {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
