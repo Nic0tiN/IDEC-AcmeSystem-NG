@@ -25,6 +25,18 @@ namespace AcmeSystem.Business.Metier.Model
                 Adresse = adresse
             };
         }
+       public static Contact CreateContact(int id, string nom, string prenom, string rue, string num,
+                                            string npa, string localite, string compte)
+       {
+           Contact contact = CreateContact(id, nom, prenom, rue, num, npa, localite);
+
+           contact.Compte = new Compte()
+           {
+               Id = id, Nom = compte
+           };
+
+            return contact;
+        }
 
         public static ICollection<Contact> GetFakeContacts()
         {
@@ -41,6 +53,7 @@ namespace AcmeSystem.Business.Metier.Model
                 CreateContact(9, "Edison_Mock", "Thomas", "Light Street", "584", "3010", "Boston"),
                 CreateContact(10, "Curie_Mock", "Marie", "Rue du Radium", "11", "1912", "Paris"),
                 CreateContact(11, "Faraday_Mock", "Michael", "Dynamo Street", "87", "1879", "London"),
+                CreateContact(11, "Compte_Mock", "Compte", "Tramway", "17", "1920", "Tombuktu", "Compte & cie"),
             };
 
             return contacts;
