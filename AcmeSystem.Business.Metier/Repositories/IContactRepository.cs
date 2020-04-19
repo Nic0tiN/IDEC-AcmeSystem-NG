@@ -6,9 +6,5 @@ using System.Text;
 
 namespace AcmeSystem.Business.Metier.Repositories
 {
-    public interface IContactRepository
-    {
-        Contact GetById(int id);
-        ICollection<Contact> GetAll();
-    }
+    public interface IContactRepository : IRepository<Contact> { }
 }

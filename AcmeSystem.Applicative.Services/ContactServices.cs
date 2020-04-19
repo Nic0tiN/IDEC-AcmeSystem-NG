@@ -17,6 +17,7 @@ namespace AcmeSystem.Applicative.Services
             Console.WriteLine("Services Normaux pour les contacts \n");
             _contactRepository = contactRepository;
         }
+
         public ICollection<Contact> GetAll()
         {
             return _contactRepository.GetAll();

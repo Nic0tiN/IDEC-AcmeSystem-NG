@@ -16,14 +16,14 @@ namespace AcmeSystem.Persistance.EntityPersistence.MockRepositories
             _contacts = ContactFactory.GetFakeContacts();
         }
 
+        public ICollection<Contact> GetAll()
+        {
+            return _contacts;
+        }
+
         public Contact GetById(int id)
         {
             throw new NotImplementedException();
-        }
-
-        ICollection<Contact> IContactRepository.GetAll()
-        {
-            return _contacts;
         }
     }
 }

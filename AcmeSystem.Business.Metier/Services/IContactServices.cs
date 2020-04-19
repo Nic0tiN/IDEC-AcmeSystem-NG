@@ -6,8 +6,5 @@ using System.Text;
 
 namespace AcmeSystem.Business.Metier.Services
 {
-    public interface IContactServices
-    {
-        ICollection<Contact> GetAll();
-    }
+    public interface IContactServices : IService<Contact> { }
 }
