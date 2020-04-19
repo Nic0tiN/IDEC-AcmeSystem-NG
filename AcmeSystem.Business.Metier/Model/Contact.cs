@@ -4,7 +4,7 @@ using System.Text;
 
 namespace AcmeSystem.Business.Metier.Model
 {
-    public class Contact
+    public class Contact : Model
     {
         public Contact() { }
         public int Id { get; set; }
