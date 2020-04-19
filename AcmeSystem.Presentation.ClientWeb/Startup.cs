@@ -29,8 +29,8 @@ namespace AcmeSystem.Presentation.ClientWeb
             //services.AddDbContext<AcmeSystemDbContext>(options => options.UseSqlServer(
              //   Configuration["Data:AcmeSystemEntityDb:ConnectionString"]));
 
-            //services.AddDbContext<AppIdentityDbContext>(options => options.UseSqlServer(
-                //Configuration["Data:AcmeSystemIdentity:ConnectionString"]));
+            services.AddDbContext<AppIdentityDbContext>(options => options.UseSqlServer(
+                Configuration["Data:AcmeSystemIdentity:ConnectionString"]));
 
             //*  services.AddIdentity<IdentityUser, IdentityRole>()
             //*      .AddEntityFrameworkStores<AppIdentityDbContext>()

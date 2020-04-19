@@ -9,7 +9,7 @@ namespace AcmeSystem.Infrastructure.Helpers
 
         public int GetNext()
         {
-            return ;
+            return 0;
         }
     }
 }
