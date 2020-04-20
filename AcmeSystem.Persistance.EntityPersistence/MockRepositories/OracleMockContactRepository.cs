@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace AcmeSystem.Persistance.EntityPersistence.MockRepositories
+namespace AcmeSystem.Persistence.EntityPersistence.MockRepositories
 {
     public class OracleMockContactRepository : IContactRepository
     {

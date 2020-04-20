@@ -15,7 +15,7 @@ namespace AcmeSystem.Business.Metier.Model
 
         public override string ToString()
         {
-            return Prenom + " " + Nom;
+            return Prenom + " " + Nom + " " + Compte;
         }
     }
 }

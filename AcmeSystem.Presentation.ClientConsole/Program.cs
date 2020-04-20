@@ -2,9 +2,8 @@
 using AcmeSystem.Business.Metier.Model;
 using AcmeSystem.Business.Metier.Repositories;
 using AcmeSystem.Business.Metier.Services;
-using AcmeSystem.Persistance.EntityPersistence.MockRepositories;
+using AcmeSystem.Persistence.EntityPersistence.MockRepositories;
 using System;
-using System.Collections.Generic;
 
 namespace AcmeSystem.Presentation.ClientConsole
 {

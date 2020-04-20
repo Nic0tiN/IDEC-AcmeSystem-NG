@@ -17,7 +17,7 @@
   <ItemGroup>
     <ProjectReference Include="..\AcmeSystem.Applicative.Services\AcmeSystem.Applicative.Services.csproj" />
     <ProjectReference Include="..\AcmeSystem.Business.Metier\AcmeSystem.Business.Metier.csproj" />
-    <ProjectReference Include="..\AcmeSystem.Persistance.EntityPersistence\AcmeSystem.Persistance.EntityPersistence.csproj" />
+    <ProjectReference Include="..\AcmeSystem.Persistance.EntityPersistence\AcmeSystem.Persistence.EntityPersistence.csproj" />
   </ItemGroup>
 
 </Project>

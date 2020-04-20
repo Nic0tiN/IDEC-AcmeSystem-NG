@@ -12,10 +12,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
-using AcmeSystem.Presentation.ClientWeb.Infrastructure;
 using AcmeSystem.Business.Metier.Repositories;
+using AcmeSystem.Presentation.ClientWeb.Infrastructure.DbContext;
 using AcmeSystem.Business.Metier.Services;
-using AcmeSystem.Persistance.EntityPersistence.MockRepositories;
+using AcmeSystem.Persistence.EntityPersistence.MockRepositories;
+using AcmeSystem.Persistence.EntityPersistence.EfRepositories;
 
 namespace AcmeSystem.Presentation.ClientWeb
 {
@@ -26,22 +27,22 @@ namespace AcmeSystem.Presentation.ClientWeb
 
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddDbContext<AcmeSystemDbContext>(options => options.UseSqlServer(
-             //   Configuration["Data:AcmeSystemEntityDb:ConnectionString"]));
+            services.AddDbContext<AcmeSystemDbContext>(options => options.UseSqlServer(
+                Configuration["Data:AcmeSystemEntityDb:ConnectionString"]));
 
             services.AddDbContext<AppIdentityDbContext>(options => options.UseSqlServer(
                 Configuration["Data:AcmeSystemIdentity:ConnectionString"]));
 
-            //*  services.AddIdentity<IdentityUser, IdentityRole>()
-            //*      .AddEntityFrameworkStores<AppIdentityDbContext>()
-            //*     .AddDefaultTokenProviders();
+              services.AddIdentity<IdentityUser, IdentityRole>()
+                 .AddEntityFrameworkStores<AppIdentityDbContext>()
+                 .AddDefaultTokenProviders();
 
             //* Commandes à utiliser pour creer la migration d'Identity Database :
             //* dotnet ef migrations add Initial --context AppIdentityDbContext
             //* dotnet ef database update --context AppIdentityDbContext
 
-            services.AddTransient<IContactRepository, MockContactRepository>();
-            //services.AddTransient<IContactRepository, EFContactRepository>();
+            //services.AddTransient<IContactRepository, MockContactRepository>();
+            services.AddTransient<IContactRepository, EfContactRepository>();
 
             services.AddTransient<IContactServices, ContactServices>();
 

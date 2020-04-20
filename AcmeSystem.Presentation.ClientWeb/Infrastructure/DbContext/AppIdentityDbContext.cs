@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace AcmeSystem.Presentation.ClientWeb.Infrastructure
+namespace AcmeSystem.Presentation.ClientWeb.Infrastructure.DbContext
 {
     public class AppIdentityDbContext : IdentityDbContext<IdentityUser>
     {

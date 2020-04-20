@@ -1,5 +1,5 @@
 ﻿using AcmeSystem.Business.Metier.Repositories;
-using AcmeSystem.Persistance.EntityPersistence.MockRepositories;
+using AcmeSystem.Persistence.EntityPersistence.MockRepositories;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
