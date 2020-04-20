@@ -10,6 +10,9 @@ namespace AcmeSystem.Persistence.EntityPersistence.EfRepositories
     {
         private readonly ICollection<Contact> _contacts;
 
+        /**
+         * Todo: Clarifier si AcmeSystemDbContext à bien sa place ici, sachant que cela crée une dépendance vers AcmeSystem.Presentation...
+         */
         public EfContactRepository(AcmeSystemDbContext dbContext)
         {
             _contacts = dbContext.Set<Contact>().ToList();
