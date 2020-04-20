@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AcmeSystem.Business.Metier\AcmeSystem.Business.Metier.csproj" />
+    <ProjectReference Include="..\AcmeSystem.Infrastructure\AcmeSystem.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

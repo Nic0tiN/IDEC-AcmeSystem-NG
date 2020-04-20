@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using AcmeSystem.Infrastructure.Helpers;
 
 namespace AcmeSystem.Persistence.EntityPersistence.MockRepositories
 {
@@ -15,6 +16,16 @@ namespace AcmeSystem.Persistence.EntityPersistence.MockRepositories
             Console.WriteLine("MockRepository pour les contacts ");
             _contacts = ContactFactory.GetFakeContacts();
         }
+
+        public Contact Create(Contact contact)
+        {
+            contact.Id = IdContactGenerator.GetNext();
+
+            _contacts.Add(contact);
+
+            return contact;
+        }
+
         public ICollection<Contact> GetAll()
         {
             return _contacts;
@@ -27,6 +38,16 @@ namespace AcmeSystem.Persistence.EntityPersistence.MockRepositories
                     return contact;
             
             return null;
+        }
+
+        public Contact Update(int id, Contact contact)
+        {
+            return contact;
+        }
+
+        public bool Delete(Contact contact)
+        {
+            return _contacts.Remove(contact);
         }
     }
 }

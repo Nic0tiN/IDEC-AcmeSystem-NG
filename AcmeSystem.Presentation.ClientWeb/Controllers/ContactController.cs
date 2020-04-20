@@ -21,14 +21,6 @@ namespace AcmeSystem.Presentation.ClientWeb.Controllers
             _contactServices = contactServices;
         }
 
-        /*
-        public ViewResult Index()
-        {
-            return View(_contactServices.GetAll());
-        }
-        */
-
-  
         public ViewResult List(int contactPage = 1)
             => View(new ContactListViewModel
             {
@@ -42,6 +34,20 @@ namespace AcmeSystem.Presentation.ClientWeb.Controllers
                     ItemsPerPage = PageSize,
                     TotalItems = _contactServices.GetAll().Count()
                 }
+            });
+
+        [HttpGet]
+        public ViewResult Create()
+            => View(new ContactCreateViewModel
+            {
+                Contact = new Contact()
+            });
+
+        [HttpPost]
+        public ViewResult Create(Contact contact)
+            => View(new ContactCreateViewModel
+            {
+                Contact = _contactServices.Create(contact)
             });
     }
 }

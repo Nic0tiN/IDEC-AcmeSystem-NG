@@ -9,13 +9,11 @@ namespace AcmeSystem.InfrastructureTest.HelpersTest
     public class IdContactGeneratorTest
     {
         [Test]
-        public void Can_get_NexT_Contact_By_Id()
+        public void Can_get_Next_Contact_By_Id()
         {
-            var _idcontactgenerator = new IdContactGenerator();
+            int expected = 101;
 
-            int expected = 112;
-
-            Assert.AreEqual(expected, _idcontactgenerator.GetNext());
+            Assert.AreEqual(expected, IdContactGenerator.GetNext());
         }
     }
 }

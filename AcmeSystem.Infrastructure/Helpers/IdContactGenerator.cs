@@ -6,10 +6,11 @@ namespace AcmeSystem.Infrastructure.Helpers
 {
     public class IdContactGenerator
     {
+        private static int _nextId = 100;
 
-        public int GetNext()
+        public static int GetNext()
         {
-            return 0;
+            return ++_nextId;
         }
     }
 }

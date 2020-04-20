@@ -4,8 +4,12 @@ using System.Linq;
 
 namespace AcmeSystem.Business.Metier.Services
 {
-    public interface IService<TService>
+    public interface IService<TEntity>
     {
-        ICollection<TService> GetAll();
+        ICollection<TEntity> GetAll();
+        TEntity GetId(int id);
+        TEntity Create(TEntity entity);
+        TEntity Update(TEntity entity);
+        bool Delete(TEntity entity);
     }
 }
