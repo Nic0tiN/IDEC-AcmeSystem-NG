@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AcmeSystem.Applicative.Services;
 using AcmeSystem.Business;
+using AcmeSystem.Business.Metier.DbContext;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -42,9 +43,14 @@ namespace AcmeSystem.Presentation.ClientWeb
             //* dotnet ef database update --context AppIdentityDbContext
 
             //services.AddTransient<IContactRepository, MockContactRepository>();
+            //services.AddTransient<IDbContext, AcmeSystemDbContext>();
             services.AddTransient<IContactRepository, EfContactRepository>();
+            services.AddTransient<ICompteRepository, EfCompteRepository>();
+            services.AddTransient<IAdresseRepository, EfAdresseRepository>();
 
+            services.AddTransient<IAdresseServices, AdresseServices>();
             services.AddTransient<IContactServices, ContactServices>();
+            services.AddTransient<ICompteServices, CompteServices>();
 
             services.AddMemoryCache();
             services.AddSession();
@@ -75,7 +81,11 @@ namespace AcmeSystem.Presentation.ClientWeb
 
                 routes.MapRoute(
                     name: "contacts",
-                    template: "{controller=Contact}/{action=List}/{id?}");
+                    template: "{controller=Contact}/{action=List,Create,Update,Delete}/{id?}");
+                
+                routes.MapRoute(
+                    name: "contactsSync",
+                    template: "{controller=Contact}/{action=Synchronize}");
             });
 
             // SeedData.EnsurePopulated(app);

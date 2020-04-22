@@ -7,5 +7,8 @@ namespace AcmeSystem.Business.Metier.Repositories
     {
         TRepository GetById(int id);
         ICollection<TRepository> GetAll();
+        TRepository Create(TRepository entity);
+        TRepository Update(TRepository entity);
+        bool Delete(TRepository entity);
     }
 }

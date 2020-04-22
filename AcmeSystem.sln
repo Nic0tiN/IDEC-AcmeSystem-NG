@@ -31,6 +31,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AcmeSystem.Infrastructure",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AcmeSystem.InfrastructureTest", "AcmeSystem.InfrastructureTest\AcmeSystem.InfrastructureTest.csproj", "{88D337DA-4ACA-4F3E-B7F1-10A7C3365C19}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AcmeSystem.Applicative.ServicesTest", "AcmeSystem.Applicative.ServicesTest\AcmeSystem.Applicative.ServicesTest.csproj", "{51380C6C-8C12-4F30-9874-F9E72C0D8E0A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,10 @@ Global
 		{88D337DA-4ACA-4F3E-B7F1-10A7C3365C19}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{88D337DA-4ACA-4F3E-B7F1-10A7C3365C19}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{88D337DA-4ACA-4F3E-B7F1-10A7C3365C19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51380C6C-8C12-4F30-9874-F9E72C0D8E0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51380C6C-8C12-4F30-9874-F9E72C0D8E0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51380C6C-8C12-4F30-9874-F9E72C0D8E0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51380C6C-8C12-4F30-9874-F9E72C0D8E0A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -82,6 +88,7 @@ Global
 		{6BC3E38D-5AEE-4B11-990B-24666F870EAB} = {A3954E5C-0E36-4653-AB39-BB267780FFD7}
 		{01F5AF59-7363-4D81-8E4A-DDF4BC46E939} = {D40D3EBD-CD45-4A8D-88F9-D6F35B1CF6E9}
 		{88D337DA-4ACA-4F3E-B7F1-10A7C3365C19} = {A3954E5C-0E36-4653-AB39-BB267780FFD7}
+		{51380C6C-8C12-4F30-9874-F9E72C0D8E0A} = {A3954E5C-0E36-4653-AB39-BB267780FFD7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {404DE9EC-06EC-47B3-B823-75A620794910}

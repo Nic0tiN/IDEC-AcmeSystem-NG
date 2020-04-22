@@ -8,8 +8,7 @@ namespace AcmeSystem.Business.Metier.Services
     {
         ICollection<TEntity> GetAll();
         TEntity GetId(int id);
-        TEntity Create(TEntity entity);
-        TEntity Update(TEntity entity);
+        TEntity Save(TEntity entity);
         bool Delete(TEntity entity);
     }
 }

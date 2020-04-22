@@ -6,18 +6,18 @@ using AcmeSystem.Presentation.ClientWeb.Infrastructure.DbContext;
 
 namespace AcmeSystem.Persistence.EntityPersistence.EfRepositories
 {
-    public class EfContactRepository : IContactRepository
+    public class EfAdresseRepository : IAdresseRepository
     {
         private readonly Microsoft.EntityFrameworkCore.DbContext _context;
         /**
          * Todo: Clarifier si AcmeSystemDbContext à bien sa place ici, sachant que cela crée une dépendance vers AcmeSystem.Presentation...
          */
-        public EfContactRepository(AcmeSystemDbContext dbContext)
+        public EfAdresseRepository(AcmeSystemDbContext dbContext)
         {
             _context = dbContext;
         }
 
-        public Contact Create(Contact entity)
+        public Adresse Create(Adresse entity)
         {
             entity = _context.Add(entity).Entity;
 
@@ -26,24 +26,24 @@ namespace AcmeSystem.Persistence.EntityPersistence.EfRepositories
             return entity;
         }
 
-        public bool Delete(Contact entity)
+        public bool Delete(Adresse entity)
         {
             _context.Remove(entity);
 
             return _context.SaveChanges() > 0;
         }
 
-        public ICollection<Contact> GetAll()
+        public ICollection<Adresse> GetAll()
         {
-            return _context.Set<Contact>().ToList();
+            return _context.Set<Adresse>().ToList();
         }
 
-        public Contact GetById(int id)
+        public Adresse GetById(int id)
         {
-            return GetAll().FirstOrDefault(contact => contact.Id == id);
+            return GetAll().FirstOrDefault(adresse => adresse.Id == id);
         }
 
-        public Contact Update(Contact entity)
+        public Adresse Update(Adresse entity)
         {
             entity =_context.Update(entity).Entity;
 

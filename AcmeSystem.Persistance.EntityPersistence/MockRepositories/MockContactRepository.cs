@@ -40,7 +40,7 @@ namespace AcmeSystem.Persistence.EntityPersistence.MockRepositories
             return null;
         }
 
-        public Contact Update(int id, Contact contact)
+        public Contact Update(Contact contact)
         {
             return contact;
         }

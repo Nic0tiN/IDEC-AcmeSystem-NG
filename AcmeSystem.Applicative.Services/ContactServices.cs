@@ -18,9 +18,31 @@ namespace AcmeSystem.Applicative.Services
             _contactRepository = contactRepository;
         }
 
+        public Contact Save(Contact entity)
+        {
+            if (entity.Id != null)
+            {
+                return _contactRepository.Create(entity);
+            }
+            else
+            {
+                return _contactRepository.Update(entity);
+            }
+        }
+
+        public bool Delete(Contact entity)
+        {
+            return _contactRepository.Delete(entity);
+        }
+
         public ICollection<Contact> GetAll()
         {
             return _contactRepository.GetAll();
+        }
+
+        public Contact GetId(int id)
+        {
+            return _contactRepository.GetById(id);
         }
     }
 }

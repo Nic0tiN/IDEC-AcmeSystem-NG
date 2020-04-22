@@ -54,7 +54,7 @@ namespace AcmeSystem.PersistenceTest
         public void CanUpdateContact()
         {
             var expected = "Updated Contact ";
-            Assert.AreEqual(expected, _contactRepository.Update(1, new Contact() { Nom = "Contact", Prenom = "Updated"} ).ToString());
+            Assert.AreEqual(expected, _contactRepository.Update(new Contact() { Nom = "Contact", Prenom = "Updated"} ).ToString());
             Assert.AreEqual(12, _contactRepository.GetAll().Count);
         }
 

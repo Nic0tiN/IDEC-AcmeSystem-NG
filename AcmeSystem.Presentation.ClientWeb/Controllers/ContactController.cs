@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using AcmeSystem.Business.Metier.Model;
 using AcmeSystem.Business.Metier.Services;
+using AcmeSystem.Presentation.ClientWeb.Infrastructure;
 using AcmeSystem.Presentation.ClientWeb.ViewModels;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 
@@ -13,12 +11,16 @@ namespace AcmeSystem.Presentation.ClientWeb.Controllers
 {
     public class ContactController : Controller
     {
-        IContactServices _contactServices;
+        private IAdresseServices _adresseServices;
+        private IContactServices _contactServices;
+        private ICompteServices _compteServices;
         public int PageSize = 4;
 
-        public ContactController(IContactServices contactServices)
+        public ContactController(IAdresseServices addresseServices, IContactServices contactServices, ICompteServices compteServices)
         {
+            _adresseServices = addresseServices;
             _contactServices = contactServices;
+            _compteServices = compteServices;
         }
 
         public ViewResult List(int contactPage = 1)
@@ -40,14 +42,55 @@ namespace AcmeSystem.Presentation.ClientWeb.Controllers
         public ViewResult Create()
             => View(new ContactCreateViewModel
             {
-                Contact = new Contact()
+                Contact = new Contact(),
+                Comptes = _compteServices.GetAll().ToList()
+            });
+
+        [HttpGet]
+        public ViewResult Update(Contact contact)
+            => View("Create", new ContactCreateViewModel
+            {
+                Contact = contact
             });
 
         [HttpPost]
-        public ViewResult Create(Contact contact)
-            => View(new ContactCreateViewModel
+        public ActionResult Save(Contact contact)
+        {
+            try
             {
-                Contact = _contactServices.Create(contact)
-            });
+                contact = _contactServices.Save(contact);
+                FlashMessage.Success("Contact enregistré avec succès.");
+
+                return RedirectToAction("List");
+            }
+            catch (Exception e)
+            {
+                FlashMessage.Error(e.Message);
+            }
+
+            return View("Create", new ContactCreateViewModel(){ Contact = contact });
+        }
+
+        [HttpPost]
+        public ActionResult Delete(Contact contact)
+        {
+            try
+            {
+                _contactServices.Delete(contact);
+                FlashMessage.Success("Contact supprimé avec succès.");
+            }
+            catch (Exception e)
+            {
+                FlashMessage.Error(e.Message);
+            }
+
+            return RedirectToAction("List");
+        }
+
+        [HttpGet]
+        public ViewResult Synchronize()
+        {
+            return View(new SynchronizeViewModel() { });
+        }
     }
 }

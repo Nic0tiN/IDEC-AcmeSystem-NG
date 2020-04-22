@@ -7,7 +7,7 @@ namespace AcmeSystem.Business.Metier.Model
     public class Contact : Model
     {
         public Contact() { }
-        public int Id { get; set; }
+        public int? Id { get; set; }
         public string Nom { get; set; }
         public string Prenom { get; set; }
         public Adresse Adresse { get; set; }

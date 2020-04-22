@@ -16,12 +16,27 @@ namespace AcmeSystem.Persistence.EntityPersistence.MockRepositories
             _contacts = ContactFactory.GetFakeContacts();
         }
 
+        public Contact Create(Contact entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Delete(Contact entity)
+        {
+            throw new NotImplementedException();
+        }
+
         public ICollection<Contact> GetAll()
         {
             return _contacts;
         }
 
         public Contact GetById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Contact Update(Contact entity)
         {
             throw new NotImplementedException();
         }
