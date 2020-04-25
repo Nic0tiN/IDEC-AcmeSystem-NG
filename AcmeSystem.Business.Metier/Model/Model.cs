@@ -6,6 +6,7 @@ namespace AcmeSystem.Business.Metier.Model
 {
     public abstract class Model
     {
+        public int? Id;
         public abstract override string ToString();
     }
 }

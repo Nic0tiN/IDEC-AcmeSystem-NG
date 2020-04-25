@@ -13,7 +13,8 @@ namespace AcmeSystem.Presentation.ClientConsole
         {
             IContactRepository _contactRepository = new OracleMockContactRepository();
 
-            IContactServices _contactServices = new ContactServicesWeb(_contactRepository);
+            //IContactServices _contactServices = new ContactServicesWeb(_contactRepository);
+            IService<Contact> _contactServices = new Service<Contact>(_contactRepository);
 
             foreach (Contact contact in _contactServices.GetAll())
                 Console.WriteLine(contact);

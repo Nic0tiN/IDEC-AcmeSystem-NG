@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AcmeSystem.Business;
+﻿using AcmeSystem.Business.Metier.Model;
 using AcmeSystem.Business.Metier.Services;
-using AcmeSystem.Presentation.ClientWeb.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 
@@ -12,9 +7,9 @@ namespace AcmeSystem.Presentation.ClientWeb.Controllers
 {
     public class HomeController : Controller
     {
-        IContactServices _contactServices;
+        IService<Contact> _contactServices;
 
-        public HomeController(IContactServices contactServices)
+        public HomeController(IService<Contact> contactServices)
         {
             _contactServices = contactServices;
         }

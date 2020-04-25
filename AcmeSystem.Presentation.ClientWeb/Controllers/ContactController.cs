@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using AcmeSystem.Applicative.Services;
 using AcmeSystem.Business.Metier.Model;
 using AcmeSystem.Business.Metier.Services;
 using AcmeSystem.Presentation.ClientWeb.Infrastructure;
@@ -12,11 +13,11 @@ namespace AcmeSystem.Presentation.ClientWeb.Controllers
     public class ContactController : Controller
     {
         private IAdresseServices _adresseServices;
-        private IContactServices _contactServices;
+        private IService<Contact> _contactServices;
         private ICompteServices _compteServices;
         public int PageSize = 4;
 
-        public ContactController(IAdresseServices addresseServices, IContactServices contactServices, ICompteServices compteServices)
+        public ContactController(IAdresseServices addresseServices, IService<Contact> contactServices, ICompteServices compteServices)
         {
             _adresseServices = addresseServices;
             _contactServices = contactServices;

@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using AcmeSystem.Presentation.ClientWeb.Infrastructure;
 using NUnit.Framework;
 
@@ -38,7 +36,7 @@ namespace AcmeSystem.InfrastructureTest.HelpersTest
             FlashMessage.Error("This is an error");
 
             Assert.AreEqual("This is an error", FlashMessage.Message);
-            Assert.AreEqual(null, FlashMessage.Message);
+            Assert.AreEqual(String.Empty, FlashMessage.Message);
         }
     }
 }

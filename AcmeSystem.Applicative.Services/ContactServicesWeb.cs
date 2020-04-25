@@ -3,12 +3,10 @@ using AcmeSystem.Business.Metier.Repositories;
 using AcmeSystem.Business.Metier.Services;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace AcmeSystem.Applicative.Services
 {
-    public class ContactServicesWeb : IContactServices
+    public class ContactServicesWeb : IService<Contact>
     {
         IContactRepository _contactRepository;
 

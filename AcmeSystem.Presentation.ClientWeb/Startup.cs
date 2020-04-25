@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using AcmeSystem.Applicative.Services;
 using AcmeSystem.Business;
 using AcmeSystem.Business.Metier.DbContext;
+using AcmeSystem.Business.Metier.Model;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -42,14 +43,12 @@ namespace AcmeSystem.Presentation.ClientWeb
             //* dotnet ef migrations add Initial --context AppIdentityDbContext
             //* dotnet ef database update --context AppIdentityDbContext
 
-            //services.AddTransient<IContactRepository, MockContactRepository>();
-            //services.AddTransient<IDbContext, AcmeSystemDbContext>();
+            services.AddTransient<IRepository<Contact>, EfContactRepository>();
             services.AddTransient<IContactRepository, EfContactRepository>();
             services.AddTransient<ICompteRepository, EfCompteRepository>();
             services.AddTransient<IAdresseRepository, EfAdresseRepository>();
-
-            services.AddTransient<IAdresseServices, AdresseServices>();
-            services.AddTransient<IContactServices, ContactServices>();
+            services.AddTransient<IService<Contact>, Service<Contact>>();
+            services.AddTransient<IAdresseServices, AdresseServices>(); 
             services.AddTransient<ICompteServices, CompteServices>();
 
             services.AddMemoryCache();
