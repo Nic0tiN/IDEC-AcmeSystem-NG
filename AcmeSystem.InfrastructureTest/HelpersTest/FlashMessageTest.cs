@@ -10,7 +10,7 @@ namespace AcmeSystem.InfrastructureTest.HelpersTest
         public void CanSetError()
         {
             var expected_message = "This is an error";
-            var expected_type = FlashMessage.FlashType.Danger;
+            var expected_type = FlashMessage.FlashType.danger;
 
             FlashMessage.Error("This is an error");
 
@@ -22,7 +22,7 @@ namespace AcmeSystem.InfrastructureTest.HelpersTest
         public void CanSetSuccess()
         {
             var expected_message = "This is a success";
-            var expected_type = FlashMessage.FlashType.Danger;
+            var expected_type = FlashMessage.FlashType.danger;
 
             FlashMessage.Error("This is a success");
 

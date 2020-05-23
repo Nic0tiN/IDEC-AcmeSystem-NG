@@ -9,25 +9,25 @@ namespace AcmeSystem.Presentation.ClientWeb.Infrastructure
 
     public static class FlashMessage
     {
-        public enum FlashType { Success, Danger };
+        public enum FlashType { success, danger };
 
         public static FlashType Type { get; private set; }
         private static string _message = "";
 
         public static void Success(string message)
         {
-            Type = FlashType.Success;
+            Type = FlashType.success;
             _message = message;
         }
 
         public static void Error(string message)
         {
-            Type = FlashType.Danger;
+            Type = FlashType.danger;
             _message = message;
         }
 
-        public static bool HasError() => Type == FlashType.Danger && HasMessage();
-        public static bool HasSuccess() => Type == FlashType.Success && HasMessage();
+        public static bool HasError() => Type == FlashType.danger && HasMessage();
+        public static bool HasSuccess() => Type == FlashType.success && HasMessage();
         public static bool HasMessage() => _message.Length > 0;
 
         public static string Message

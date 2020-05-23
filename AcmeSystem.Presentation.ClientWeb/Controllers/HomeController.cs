@@ -7,12 +7,7 @@ namespace AcmeSystem.Presentation.ClientWeb.Controllers
 {
     public class HomeController : Controller
     {
-        IService<Contact> _contactServices;
-
-        public HomeController(IService<Contact> contactServices)
-        {
-            _contactServices = contactServices;
-        }
+        public HomeController() { }
 
         public IActionResult Index()
         {

@@ -8,12 +8,17 @@ namespace AcmeSystem.Applicative.Services
 {
     public class ContactServicesWeb : IService<Contact>
     {
-        IContactRepository _contactRepository;
+        IRepository<Contact> _contactRepository;
 
-        public ContactServicesWeb(IContactRepository contactRepository)
+        public ContactServicesWeb(IRepository<Contact> contactRepository)
         {
             Console.WriteLine("Services Web pour les contacts \n");
             _contactRepository = contactRepository;
+        }
+
+        public Contact GetId(int id, string includes = "")
+        {
+            throw new NotImplementedException();
         }
 
         public Contact Create(Contact entity)
@@ -26,14 +31,9 @@ namespace AcmeSystem.Applicative.Services
             throw new NotImplementedException();
         }
 
-        public ICollection<Contact> GetAll()
+        public ICollection<Contact> GetAll(string includes = "")
         {
             return _contactRepository.GetAll();
-        }
-
-        public Contact GetId(int id)
-        {
-            throw new NotImplementedException();
         }
 
         public Contact Save(Contact entity)

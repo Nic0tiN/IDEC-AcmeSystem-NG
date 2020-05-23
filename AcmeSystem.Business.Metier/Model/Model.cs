@@ -4,9 +4,10 @@ using System.Text;
 
 namespace AcmeSystem.Business.Metier.Model
 {
-    public abstract class Model
+    public partial class Model
     {
-        public int? Id;
-        public abstract override string ToString();
+        public int? Id { get; set; }
+
+        public bool IsNew => Id == null;
     }
 }

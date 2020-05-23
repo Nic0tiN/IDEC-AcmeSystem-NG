@@ -6,8 +6,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\AcmeSystemDb\20200522125822_addTags.cs" />
+    <Compile Remove="Migrations\AcmeSystemDb\20200522125822_addTags.Designer.cs" />
+    <Compile Remove="Migrations\AcmeSystemDb\20200523081529_idRefactor.cs" />
+    <Compile Remove="Migrations\AcmeSystemDb\20200523081529_idRefactor.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.4" />
   </ItemGroup>
 
   <ItemGroup>

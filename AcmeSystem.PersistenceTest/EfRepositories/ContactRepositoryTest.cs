@@ -8,7 +8,7 @@ using AcmeSystem.Business.Metier.Model;
 using AcmeSystem.Persistence.EntityPersistence.EfRepositories;
 using Microsoft.VisualStudio.TestPlatform.Common.Telemetry;
 
-namespace AcmeSystem.PersistenceTest
+namespace AcmeSystem.Persistence.EntityPersistenceTest.EfRepositories
 {
     public class ContactRepositoryTest
     {
@@ -53,7 +53,7 @@ namespace AcmeSystem.PersistenceTest
         [Test]
         public void CanUpdateContact()
         {
-            var expected = "Updated Contact ";
+            var expected = "Updated Contact \r\n\t";
             Assert.AreEqual(expected, _contactRepository.Update(new Contact() { Nom = "Contact", Prenom = "Updated"} ).ToString());
             Assert.AreEqual(12, _contactRepository.GetAll().Count);
         }

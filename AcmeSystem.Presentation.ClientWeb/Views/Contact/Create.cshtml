@@ -1,33 +1,48 @@
 ﻿@using Microsoft.AspNetCore.Mvc.Internal
 @using AcmeSystem.Presentation.ClientWeb.Controllers
 @using AcmeSystem.Presentation.ClientWeb.Infrastructure
+@using System.Collections
 @model ContactCreateViewModel
+
 
 @{
     ViewData["Title"] = "Edition d'un contact";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    // ViewData["Css"] = new String[] { "https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" };
+    // ViewData["HeadingScripts"] = new String[] { "https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js" };
 }
-
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#Contact_Tags").select2({
+            tags: true,
+            multiple: true,
+            tokenSeparators: [',', ' ']
+        });
+    });
+</script>
 @{
     var labelAttributes = new {@class = "col-sm-2 col-form-label"};
-    var textBoxAttributes = new { @class = "form-control" };
+    var textBoxAttributes = new {@class = "form-control"};
+    var address = Model.Contact.Adresse;
 }
 
+
 <div class="row">
-    <div class="card">
-        <div class="card-header">
-            <h4>Edition d'un contact</h4>
-        </div>
-        @if (FlashMessage.HasError())
-        {
-            <div class="alert alert-@FlashMessage.Type" role="alert">
-                <strong>Erreur !</strong> @FlashMessage.Message
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h4>Edition d'un contact</h4>
             </div>
-        }
-        <div class="card-block">
-            <div class="container">
+            <div class="card-body">
+                @if (FlashMessage.HasError())
+                {
+                    <div class="alert alert-@FlashMessage.Type" role="alert">
+                        <strong>Erreur !</strong> @FlashMessage.Message
+                    </div>
+                }
                 @using (Html.BeginForm("Save", "Contact", FormMethod.Post))
                 {
+                    @Html.HiddenFor(c => c.Contact.Id)
                     <div class="form-group row">
                         @Html.LabelFor(m => m.Contact.Nom, "Nom", labelAttributes)
                         <div class="col-sm-10">
@@ -41,14 +56,51 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        @Html.LabelFor(m => m.Contact.Compte, "Compte", labelAttributes)
+                        @Html.LabelFor(m => m.Contact.Tags, "Tags", labelAttributes)
                         <div class="col-sm-10">
-                            @Html.DropDownListFor(c => c.Contact.Compte, new SelectList(Model.Comptes, "Id", "Nom"), textBoxAttributes)
+                            @Html.DropDownListFor(m => m.Contact.Tags, (MultiSelectList)ViewBag.Tags, new {@class = "form-control", multiple = true})
                         </div>
                     </div>
                     <div class="form-group row">
+                        @Html.LabelFor(m => m.Contact.Compte.Id, "Compte", labelAttributes)
+                        <div class="col-sm-10">
+                            @Html.DropDownListFor(m => m.Contact.Compte.Id, (SelectList)ViewBag.Comptes, "Sélectionner un compte", textBoxAttributes)
+                        </div>
+                    </div>
+
+                    <fieldset title="Adresse" class="form-control-plaintext">
+                        <legend>Adresse</legend>
+                        @Html.HiddenFor(c => c.Contact.Adresse.Id)
+                        <div class="form-group row">
+                            @Html.LabelFor(m => m.Contact.Adresse.Rue, "Rue", labelAttributes)
+                            <div class="col-sm-6">
+                                @Html.TextBoxFor(c => c.Contact.Adresse.Rue, textBoxAttributes)
+                            </div>
+                            @Html.LabelFor(m => m.Contact.Adresse.Numero, "Numéro", labelAttributes)
+                            <div class="col-sm-2">
+                                @Html.TextBoxFor(c => c.Contact.Adresse.Numero, textBoxAttributes)
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            @Html.LabelFor(m => m.Contact.Adresse.Npa, "NPA", labelAttributes)
+                            <div class="col-sm-2">
+                                @Html.TextBoxFor(c => c.Contact.Adresse.Npa, textBoxAttributes)
+                            </div>
+                            @Html.LabelFor(m => m.Contact.Adresse.Localite, "Localité", labelAttributes)
+                            <div class="col-sm-6">
+                                @Html.TextBoxFor(c => c.Contact.Adresse.Localite, textBoxAttributes)
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <h4>Notes</h4>
+                        </div>
+                        <div class="form-group row">
+                            @Html.TextAreaFor(m => m.Contact.Note, textBoxAttributes)
+                        </div>
+                    </fieldset>
+                    <div class="form-group row">
                         <div class="offset-sm-2 col-sm-10">
-                            <input type="submit" class="btn btn-primary" value="Créer"/>
+                            <input type="submit" class="btn btn-primary" value="Enregistrer"/>
                         </div>
                     </div>
                 }

@@ -35,21 +35,25 @@ namespace AcmeSystem.Presentation.ClientWeb
             services.AddDbContext<AppIdentityDbContext>(options => options.UseSqlServer(
                 Configuration["Data:AcmeSystemIdentity:ConnectionString"]));
 
-              services.AddIdentity<IdentityUser, IdentityRole>()
+            services.AddIdentity<IdentityUser, IdentityRole>()
                  .AddEntityFrameworkStores<AppIdentityDbContext>()
                  .AddDefaultTokenProviders();
 
             //* Commandes à utiliser pour creer la migration d'Identity Database :
             //* dotnet ef migrations add Initial --context AppIdentityDbContext
             //* dotnet ef database update --context AppIdentityDbContext
+            services.AddTransient<AcmeContext, AcmeSystemDbContext>();
+            // services.AddTransient<IDbContext, AcmeSystemDbContext>();
 
-            services.AddTransient<IRepository<Contact>, EfContactRepository>();
-            services.AddTransient<IContactRepository, EfContactRepository>();
-            services.AddTransient<ICompteRepository, EfCompteRepository>();
-            services.AddTransient<IAdresseRepository, EfAdresseRepository>();
+            services.AddTransient<IRepository<Contact>, EfRepository<Contact>>();
+            services.AddTransient<IRepository<Compte>, EfRepository<Compte>>();
+            services.AddTransient<IRepository<Adresse>, EfRepository<Adresse>>();
+            services.AddTransient<IRepository<Tag>, EfRepository<Tag>>();
+            
+            services.AddTransient<IService<Adresse>, Service<Adresse>>();
+            services.AddTransient<IService<Compte>, Service<Compte>>();
             services.AddTransient<IService<Contact>, Service<Contact>>();
-            services.AddTransient<IAdresseServices, AdresseServices>(); 
-            services.AddTransient<ICompteServices, CompteServices>();
+            services.AddTransient<IService<Tag>, Service<Tag>>();
 
             services.AddMemoryCache();
             services.AddSession();
@@ -59,6 +63,16 @@ namespace AcmeSystem.Presentation.ClientWeb
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+                app.UseStatusCodePages();
+            }
+            else
+            {
+                app.UseExceptionHandler("/Error");
+            }
+
             app.UseDeveloperExceptionPage();
             app.UseStatusCodePages();
 
@@ -80,7 +94,11 @@ namespace AcmeSystem.Presentation.ClientWeb
 
                 routes.MapRoute(
                     name: "contacts",
-                    template: "{controller=Contact}/{action=List,Create,Update,Delete}/{id?}");
+                    template: "{controller=Contact}/{action=List,View,Create,Update,Delete}/{id?}");
+                
+                routes.MapRoute(
+                    name: "comptes",
+                    template: "{controller=Compte}/{action=Index,View,Create,Update,Delete,Save}/{id?}");
                 
                 routes.MapRoute(
                     name: "contactsSync",

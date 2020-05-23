@@ -21,7 +21,7 @@ namespace AcmeSystem.Presentation.ClientWeb.Migrations.AcmeSystemDb
 
             modelBuilder.Entity("AcmeSystem.Business.Metier.Model.Adresse", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int?>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -40,7 +40,7 @@ namespace AcmeSystem.Presentation.ClientWeb.Migrations.AcmeSystemDb
 
             modelBuilder.Entity("AcmeSystem.Business.Metier.Model.Compte", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int?>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -53,7 +53,7 @@ namespace AcmeSystem.Presentation.ClientWeb.Migrations.AcmeSystemDb
 
             modelBuilder.Entity("AcmeSystem.Business.Metier.Model.Contact", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int?>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -63,7 +63,11 @@ namespace AcmeSystem.Presentation.ClientWeb.Migrations.AcmeSystemDb
 
                     b.Property<string>("Nom");
 
+                    b.Property<string>("Note");
+
                     b.Property<string>("Prenom");
+
+                    b.Property<string>("Tags");
 
                     b.HasKey("Id");
 
@@ -72,6 +76,32 @@ namespace AcmeSystem.Presentation.ClientWeb.Migrations.AcmeSystemDb
                     b.HasIndex("CompteId");
 
                     b.ToTable("Contacts");
+                });
+
+            modelBuilder.Entity("AcmeSystem.Business.Metier.Model.ContactTag", b =>
+                {
+                    b.Property<int?>("ContactId");
+
+                    b.Property<int?>("TagId");
+
+                    b.HasKey("ContactId", "TagId");
+
+                    b.HasIndex("TagId");
+
+                    b.ToTable("ContactTag");
+                });
+
+            modelBuilder.Entity("AcmeSystem.Business.Metier.Model.Tag", b =>
+                {
+                    b.Property<int?>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Nom");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Tags");
                 });
 
             modelBuilder.Entity("AcmeSystem.Business.Metier.Model.Contact", b =>
@@ -83,6 +113,19 @@ namespace AcmeSystem.Presentation.ClientWeb.Migrations.AcmeSystemDb
                     b.HasOne("AcmeSystem.Business.Metier.Model.Compte", "Compte")
                         .WithMany()
                         .HasForeignKey("CompteId");
+                });
+
+            modelBuilder.Entity("AcmeSystem.Business.Metier.Model.ContactTag", b =>
+                {
+                    b.HasOne("AcmeSystem.Business.Metier.Model.Contact", "Contact")
+                        .WithMany("ContactTags")
+                        .HasForeignKey("ContactId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("AcmeSystem.Business.Metier.Model.Tag", "Tag")
+                        .WithMany("ContactTags")
+                        .HasForeignKey("TagId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

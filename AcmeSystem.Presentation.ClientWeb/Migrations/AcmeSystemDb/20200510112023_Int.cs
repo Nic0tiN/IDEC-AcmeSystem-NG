@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace AcmeSystem.Presentation.ClientWeb.Migrations.AcmeSystemDb
 {
-    public partial class Init : Migration
+    public partial class Int : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -44,6 +44,7 @@ namespace AcmeSystem.Presentation.ClientWeb.Migrations.AcmeSystemDb
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Nom = table.Column<string>(nullable: true),
                     Prenom = table.Column<string>(nullable: true),
+                    NewProp = table.Column<string>(nullable: true),
                     AdresseId = table.Column<int>(nullable: true),
                     CompteId = table.Column<int>(nullable: true)
                 },

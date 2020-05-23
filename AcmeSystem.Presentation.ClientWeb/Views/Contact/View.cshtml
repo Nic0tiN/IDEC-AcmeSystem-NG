@@ -1,0 +1,80 @@
+﻿@using Microsoft.AspNetCore.Mvc.Internal
+@using AcmeSystem.Presentation.ClientWeb.Controllers
+@using AcmeSystem.Presentation.ClientWeb.Infrastructure
+@model ContactCreateViewModel
+
+@{
+    ViewData["Title"] = "Visualisation d'un contact";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    var labelAttributes = new { @class = "col-sm-2 col-form-label" };
+    var textBoxAttributes = new { @class = "form-control-plaintext", @readonly = "readonly", @disabled="disabled" };
+    var address = Model.Contact.Adresse;
+}
+
+
+<div class="row">
+    <div class="col-12">
+        <a asp-action="List" class="btn btn-link">Retour à la liste</a>
+    </div>
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h4>Visualisation d'un contact</h4>
+            </div>
+            <div class="card-body">
+                @Html.HiddenFor(c => c.Contact.Id)
+                <div class="form-group row">
+                    @Html.LabelFor(m => m.Contact.Nom, "Nom", labelAttributes)
+                    <div class="col-sm-10">
+                        @Html.TextBoxFor(c => c.Contact.Nom, textBoxAttributes)
+                    </div>
+                </div>
+                <div class="form-group row">
+                    @Html.LabelFor(m => m.Contact.Prenom, "Prenom", labelAttributes)
+                    <div class="col-sm-10">
+                        @Html.TextBoxFor(c => c.Contact.Prenom, textBoxAttributes)
+                    </div>
+                </div>
+                <div class="form-group row">
+                    @Html.LabelFor(m => m.Contact.Compte, "Compte", labelAttributes)
+                    <div class="col-sm-10">
+                        @Html.DropDownListFor(c => c.Contact.Compte, (SelectList)ViewBag.Comptes, textBoxAttributes)
+                    </div>
+                </div>
+                <fieldset title="Adresse" class="form-control-plaintext">
+                    <legend>Adresse</legend>
+                    @Html.HiddenFor(c => c.Contact.Adresse.Id)
+                    <div class="form-group row">
+                        @Html.LabelFor(m => m.Contact.Adresse.Rue, "Rue", labelAttributes)
+                        <div class="col-sm-6">
+                            @Html.TextBoxFor(c => c.Contact.Adresse.Rue, textBoxAttributes)
+                        </div>
+                        @Html.LabelFor(m => m.Contact.Adresse.Numero, "Numéro", labelAttributes)
+                        <div class="col-sm-2">
+                            @Html.TextBoxFor(c => c.Contact.Adresse.Numero, textBoxAttributes)
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        @Html.LabelFor(m => m.Contact.Adresse.Npa, "NPA", labelAttributes)
+                        <div class="col-sm-2">
+                            @Html.TextBoxFor(c => c.Contact.Adresse.Npa, textBoxAttributes)
+                        </div>
+                        @Html.LabelFor(m => m.Contact.Adresse.Localite, "Localité", labelAttributes)
+                        <div class="col-sm-6">
+                            @Html.TextBoxFor(c => c.Contact.Adresse.Localite, textBoxAttributes)
+                        </div>
+                    </div>
+                </fieldset>
+                <div class="form-group row">
+                    <h4>Notes</h4>
+                </div>
+                <div class="form-group row">
+                    @Html.TextAreaFor(m => m.Contact.Note, textBoxAttributes)
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

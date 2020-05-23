@@ -11,7 +11,7 @@ namespace AcmeSystem.Presentation.ClientConsole
     {
         static void Main(string[] args)
         {
-            IContactRepository _contactRepository = new OracleMockContactRepository();
+            IRepository<Contact> _contactRepository = new OracleMockContactRepository();
 
             //IContactServices _contactServices = new ContactServicesWeb(_contactRepository);
             IService<Contact> _contactServices = new Service<Contact>(_contactRepository);

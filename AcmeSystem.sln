@@ -17,7 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AcmeSystem.Persistence.Enti
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3- Infrastructure", "3- Infrastructure", "{D40D3EBD-CD45-4A8D-88F9-D6F35B1CF6E9}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2- Aplicative", "2- Aplicative", "{74329A53-116A-404A-BC2E-5675D765DEE9}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2- Applicative", "2- Applicative", "{74329A53-116A-404A-BC2E-5675D765DEE9}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AcmeSystem.Applicative.Services", "AcmeSystem.Applicative.Services\AcmeSystem.Applicative.Services.csproj", "{36F0F643-A3BE-4AA5-B34F-D79B4277351F}"
 EndProject
@@ -25,13 +25,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTest", "UnitTest", "{A3
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AcmeSystem.Presentation.ClientConsole", "AcmeSystem.Presentation.ClientConsole\AcmeSystem.Presentation.ClientConsole.csproj", "{E177D8CE-A87D-44C1-96AF-A698E98F7C7D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AcmeSystem.PersistenceTest", "AcmeSystem.PersistenceTest\AcmeSystem.PersistenceTest.csproj", "{6BC3E38D-5AEE-4B11-990B-24666F870EAB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AcmeSystem.Persistence.EntityPersistenceTest", "AcmeSystem.PersistenceTest\AcmeSystem.Persistence.EntityPersistenceTest.csproj", "{6BC3E38D-5AEE-4B11-990B-24666F870EAB}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AcmeSystem.Infrastructure", "AcmeSystem.Infrastructure\AcmeSystem.Infrastructure.csproj", "{01F5AF59-7363-4D81-8E4A-DDF4BC46E939}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AcmeSystem.InfrastructureTest", "AcmeSystem.InfrastructureTest\AcmeSystem.InfrastructureTest.csproj", "{88D337DA-4ACA-4F3E-B7F1-10A7C3365C19}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AcmeSystem.Applicative.ServicesTest", "AcmeSystem.Applicative.ServicesTest\AcmeSystem.Applicative.ServicesTest.csproj", "{51380C6C-8C12-4F30-9874-F9E72C0D8E0A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AcmeSystem.Applicative.ServicesTest", "AcmeSystem.Applicative.ServicesTest\AcmeSystem.Applicative.ServicesTest.csproj", "{51380C6C-8C12-4F30-9874-F9E72C0D8E0A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

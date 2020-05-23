@@ -1,11 +1,15 @@
-﻿using AcmeSystem.Business.Metier.Model;
+﻿using System;
+using AcmeSystem.Business.Metier.Model;
 using AcmeSystem.Business.Metier.Repositories;
 using Google.Apis.Services;
 using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace AcmeSystem.Persistence.EntityPersistence.ExternalRepositories
 {
-    class GmailContactRepository : IContactRepository
+    class GmailContactRepository : IRepository<Contact>
     {
         private IClientService _service;
 
@@ -13,6 +17,12 @@ namespace AcmeSystem.Persistence.EntityPersistence.ExternalRepositories
         {
             _service = service;
         }
+
+        public ICollection<Contact> Get(Expression<Func<Contact, bool>> filter = null, Func<IQueryable<Contact>, IOrderedQueryable<Contact>> orderBy = null, string includeProperties = "")
+        {
+            throw new NotImplementedException();
+        }
+
         public Contact Create(Contact entity)
         {
             throw new System.NotImplementedException();

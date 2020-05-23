@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AcmeSystem.Presentation.ClientWeb.Migrations.AcmeSystemDb
 {
     [DbContext(typeof(AcmeSystemDbContext))]
-    [Migration("20200420153528_Init")]
-    partial class Init
+    [Migration("20200510112023_Int")]
+    partial class Int
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,7 +23,7 @@ namespace AcmeSystem.Presentation.ClientWeb.Migrations.AcmeSystemDb
 
             modelBuilder.Entity("AcmeSystem.Business.Metier.Model.Adresse", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int?>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -42,7 +42,7 @@ namespace AcmeSystem.Presentation.ClientWeb.Migrations.AcmeSystemDb
 
             modelBuilder.Entity("AcmeSystem.Business.Metier.Model.Compte", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int?>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -55,13 +55,15 @@ namespace AcmeSystem.Presentation.ClientWeb.Migrations.AcmeSystemDb
 
             modelBuilder.Entity("AcmeSystem.Business.Metier.Model.Contact", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int?>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int?>("AdresseId");
 
                     b.Property<int?>("CompteId");
+
+                    b.Property<string>("NewProp");
 
                     b.Property<string>("Nom");
 
